@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"log/slog"
 	"test-echo/database/models"
+	userqueries "test-echo/database/queries"
 )
 
 type UserRepositoryInterface interface {
@@ -22,15 +23,7 @@ func NewUserRepository(db *sql.DB) UserRepositoryInterface {
 
 func (r *UserRepository) GetMany() ([]models.User, error) {
 	var users []models.User
-	query := `
-		SELECT 
-			id, username, fullname, created_at, updated_at, deleted_at
-		FROM
-			users
-		ORDER BY
-			username ASC;
-	`
-	rows, err := r.DB.Query(query)
+	rows, err := r.DB.Query(userqueries.GET_MANY)
 	if err != nil {
 		slog.Error(err.Error())
 	}
