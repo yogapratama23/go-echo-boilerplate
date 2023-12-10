@@ -10,7 +10,7 @@ import (
 )
 
 type RouteInterface interface {
-	Register(v1 *echo.Group)
+	RegisterV1(v1 *echo.Group)
 }
 
 type Route struct {
@@ -23,7 +23,7 @@ func NewRoute(db *sql.DB) RouteInterface {
 	}
 }
 
-func (r *Route) Register(v1 *echo.Group) {
+func (r *Route) RegisterV1(v1 *echo.Group) {
 	// register repositories
 	userRepository := repositories.NewUserRepository(r.DB)
 
@@ -36,7 +36,5 @@ func (r *Route) Register(v1 *echo.Group) {
 
 	// register routes
 	v1.GET("", defaultHandler.Home)
-
-	user := v1.Group("/user")
-	user.GET("", userHandler.GetUsers)
+	RegisterUserRoute(v1, userHandler)
 }

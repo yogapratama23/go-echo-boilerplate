@@ -28,7 +28,7 @@ func main() {
 
 	v1 := e.Group("v1")
 	r := routes.NewRoute(db)
-	r.Register(v1)
+	r.RegisterV1(v1)
 
 	appPort := os.Getenv("APP_PORT")
 	serverAddress := fmt.Sprintf(":%s", appPort)
