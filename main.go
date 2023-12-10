@@ -5,6 +5,7 @@ import (
 	"log"
 	"os"
 	"test-echo/database"
+	"test-echo/middlewares"
 	"test-echo/routes"
 
 	"github.com/joho/godotenv"
@@ -23,6 +24,8 @@ func main() {
 	defer db.Close()
 
 	e := echo.New()
+	e.Use(middlewares.LoggerMiddleware())
+
 	v1 := e.Group("v1")
 	r := routes.NewRoute(db)
 	r.Register(v1)
