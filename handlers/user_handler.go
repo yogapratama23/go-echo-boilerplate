@@ -23,7 +23,7 @@ func NewUserHandler(userService services.UserServiceInterface) UserHandlerInterf
 }
 
 func (h *UserHandler) GetUsers(c echo.Context) error {
-	var payload dto.FindManyUserFilter
+	var payload dto.GetUsersPayload
 	err := (&echo.DefaultBinder{}).BindQueryParams(c, &payload)
 	if err != nil {
 		return err
@@ -33,8 +33,11 @@ func (h *UserHandler) GetUsers(c echo.Context) error {
 	if err != nil {
 		return err
 	}
-	return c.JSON(http.StatusOK, map[string]interface{}{
-		"message": "Get users",
-		"data":    data,
-	})
+
+	resp := dto.ResponsePagination{
+		Message:            "Get users",
+		Data:               data.Users,
+		PaginationResponse: data.PaginationResponse,
+	}
+	return c.JSON(http.StatusOK, resp)
 }

@@ -7,7 +7,7 @@ import (
 )
 
 type UserServiceInterface interface {
-	FindMany(input *dto.FindManyUserFilter) ([]*models.APIUser, error)
+	FindMany(input *dto.GetUsersPayload) (*models.APIUserPaginate, error)
 }
 
 type UserService struct {
@@ -20,8 +20,8 @@ func NewUserService(userRepository repositories.UserRepositoryInterface) UserSer
 	}
 }
 
-func (s *UserService) FindMany(input *dto.FindManyUserFilter) ([]*models.APIUser, error) {
-	users, err := s.UserRepository.FindMany(input)
+func (s *UserService) FindMany(input *dto.GetUsersPayload) (*models.APIUserPaginate, error) {
+	users, err := s.UserRepository.FindManyPagination(&input.FindManyUserFilter, input.PaginationInput)
 	if err != nil {
 		return nil, err
 	}

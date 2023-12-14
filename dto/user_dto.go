@@ -5,3 +5,8 @@ type FindManyUserFilter struct {
 	Username string  `query:"username"`
 	Fullname string  `query:"fullname"`
 }
+
+type GetUsersPayload struct {
+	FindManyUserFilter
+	PaginationInput
+}
