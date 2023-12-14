@@ -42,9 +42,6 @@ func (r *UserRepository) FindMany(filters *dto.FindManyUserFilter) ([]*models.AP
 		}
 	}
 
-	var total int64
-	qb.Count(&total)
-
 	if err := qb.Find(&users).Error; err != nil {
 		return nil, err
 	}
