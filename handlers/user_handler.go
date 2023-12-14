@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"net/http"
+	"test-echo/dto"
 	"test-echo/services"
 
 	"github.com/labstack/echo/v4"
@@ -22,7 +23,13 @@ func NewUserHandler(userService services.UserServiceInterface) UserHandlerInterf
 }
 
 func (h *UserHandler) GetUsers(c echo.Context) error {
-	data, err := h.UserService.GetUsers()
+	var payload dto.FindManyUserFilter
+	err := (&echo.DefaultBinder{}).BindQueryParams(c, &payload)
+	if err != nil {
+		return err
+	}
+
+	data, err := h.UserService.FindMany(&payload)
 	if err != nil {
 		return err
 	}

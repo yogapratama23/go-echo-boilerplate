@@ -21,7 +21,6 @@ func init() {
 
 func main() {
 	db := database.InitDB()
-	defer db.Close()
 
 	e := echo.New()
 	e.Use(middlewares.LoggerMiddleware())

@@ -1,12 +1,12 @@
 package routes
 
 import (
-	"database/sql"
 	"test-echo/database/repositories"
 	"test-echo/handlers"
 	"test-echo/services"
 
 	"github.com/labstack/echo/v4"
+	"gorm.io/gorm"
 )
 
 type RouteInterface interface {
@@ -14,10 +14,10 @@ type RouteInterface interface {
 }
 
 type Route struct {
-	DB *sql.DB
+	DB *gorm.DB
 }
 
-func NewRoute(db *sql.DB) RouteInterface {
+func NewRoute(db *gorm.DB) RouteInterface {
 	return &Route{
 		DB: db,
 	}

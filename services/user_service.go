@@ -3,10 +3,11 @@ package services
 import (
 	"test-echo/database/models"
 	"test-echo/database/repositories"
+	"test-echo/dto"
 )
 
 type UserServiceInterface interface {
-	GetUsers() ([]models.User, error)
+	FindMany(input *dto.FindManyUserFilter) ([]*models.APIUser, error)
 }
 
 type UserService struct {
@@ -19,8 +20,8 @@ func NewUserService(userRepository repositories.UserRepositoryInterface) UserSer
 	}
 }
 
-func (s *UserService) GetUsers() ([]models.User, error) {
-	users, err := s.UserRepository.GetMany()
+func (s *UserService) FindMany(input *dto.FindManyUserFilter) ([]*models.APIUser, error) {
+	users, err := s.UserRepository.FindMany(input)
 	if err != nil {
 		return nil, err
 	}
