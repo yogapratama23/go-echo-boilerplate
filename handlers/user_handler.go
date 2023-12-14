@@ -29,7 +29,7 @@ func (h *UserHandler) GetUsers(c echo.Context) error {
 		return err
 	}
 
-	data, err := h.UserService.FindMany(&payload)
+	data, err := h.UserService.GetUsers(&payload)
 	if err != nil {
 		return err
 	}

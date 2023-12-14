@@ -1,13 +1,14 @@
 package services
 
 import (
+	"fmt"
 	"test-echo/database/models"
 	"test-echo/database/repositories"
 	"test-echo/dto"
 )
 
 type UserServiceInterface interface {
-	FindMany(input *dto.GetUsersPayload) (*models.APIUserPaginate, error)
+	GetUsers(input *dto.GetUsersPayload) (*models.APIUserPaginate, error)
 }
 
 type UserService struct {
@@ -20,10 +21,10 @@ func NewUserService(userRepository repositories.UserRepositoryInterface) UserSer
 	}
 }
 
-func (s *UserService) FindMany(input *dto.GetUsersPayload) (*models.APIUserPaginate, error) {
+func (s *UserService) GetUsers(input *dto.GetUsersPayload) (*models.APIUserPaginate, error) {
 	users, err := s.UserRepository.FindManyPagination(&input.FindManyUserFilter, input.PaginationInput)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("[UserService][GetUsers] error : %s", err.Error())
 	}
 
 	return users, nil
