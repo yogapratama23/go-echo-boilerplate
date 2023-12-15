@@ -4,9 +4,10 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"test-echo/database"
-	"test-echo/middlewares"
-	"test-echo/routes"
+
+	"github.com/yogapratama23/go-echo-boilerplate/database"
+	"github.com/yogapratama23/go-echo-boilerplate/middlewares"
+	"github.com/yogapratama23/go-echo-boilerplate/routes"
 
 	"github.com/joho/godotenv"
 	"github.com/labstack/echo/v4"

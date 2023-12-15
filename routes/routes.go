@@ -1,9 +1,9 @@
 package routes
 
 import (
-	"test-echo/database/repositories"
-	"test-echo/handlers"
-	"test-echo/services"
+	"github.com/yogapratama23/go-echo-boilerplate/database/repositories"
+	"github.com/yogapratama23/go-echo-boilerplate/handlers"
+	"github.com/yogapratama23/go-echo-boilerplate/services"
 
 	"github.com/labstack/echo/v4"
 	"gorm.io/gorm"

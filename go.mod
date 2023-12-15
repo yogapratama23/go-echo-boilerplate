@@ -1,10 +1,12 @@
-module test-echo
+module github.com/yogapratama23/go-echo-boilerplate
 
 go 1.21.5
 
 require (
 	github.com/joho/godotenv v1.5.1
 	github.com/labstack/echo/v4 v4.11.3
+	gorm.io/driver/postgres v1.5.4
+	gorm.io/gorm v1.25.5
 )
 
 require (
@@ -24,6 +26,4 @@ require (
 	golang.org/x/sys v0.13.0 // indirect
 	golang.org/x/text v0.13.0 // indirect
 	golang.org/x/time v0.3.0 // indirect
-	gorm.io/driver/postgres v1.5.4 // indirect
-	gorm.io/gorm v1.25.5 // indirect
 )

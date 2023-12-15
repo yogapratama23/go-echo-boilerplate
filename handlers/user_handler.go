@@ -2,8 +2,9 @@ package handlers
 
 import (
 	"net/http"
-	"test-echo/dto"
-	"test-echo/services"
+
+	"github.com/yogapratama23/go-echo-boilerplate/dto"
+	"github.com/yogapratama23/go-echo-boilerplate/services"
 
 	"github.com/labstack/echo/v4"
 )

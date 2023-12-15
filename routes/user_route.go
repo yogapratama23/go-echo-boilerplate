@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"test-echo/handlers"
+	"github.com/yogapratama23/go-echo-boilerplate/handlers"
 
 	"github.com/labstack/echo/v4"
 )

@@ -1,6 +1,6 @@
 package models
 
-import "test-echo/dto"
+import "github.com/yogapratama23/go-echo-boilerplate/dto"
 
 type User struct {
 	BaseModel

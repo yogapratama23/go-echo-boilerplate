@@ -1,6 +1,6 @@
 package helpers
 
-import "test-echo/dto"
+import "github.com/yogapratama23/go-echo-boilerplate/dto"
 
 type PaginationHelper struct{}
 

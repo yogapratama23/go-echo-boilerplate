@@ -2,9 +2,10 @@ package repositories
 
 import (
 	"math"
-	"test-echo/database/models"
-	"test-echo/dto"
-	"test-echo/helpers"
+
+	"github.com/yogapratama23/go-echo-boilerplate/database/models"
+	"github.com/yogapratama23/go-echo-boilerplate/dto"
+	"github.com/yogapratama23/go-echo-boilerplate/helpers"
 
 	"gorm.io/gorm"
 )

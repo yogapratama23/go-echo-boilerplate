@@ -2,9 +2,10 @@ package services
 
 import (
 	"fmt"
-	"test-echo/database/models"
-	"test-echo/database/repositories"
-	"test-echo/dto"
+
+	"github.com/yogapratama23/go-echo-boilerplate/database/models"
+	"github.com/yogapratama23/go-echo-boilerplate/database/repositories"
+	"github.com/yogapratama23/go-echo-boilerplate/dto"
 )
 
 type UserServiceInterface interface {
